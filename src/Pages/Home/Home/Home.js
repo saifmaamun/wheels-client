@@ -13,7 +13,7 @@ import Reviews from '../Reviews/Reviews';
 const navStyle = {
     textDecoration: "none",
     color: "black",
-    fontSize: "24px",
+    fontSize: "34px",
     fontWeight: "bold",
     padding: "50px 50px",
     borderRadius:"15px 50px",

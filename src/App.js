@@ -6,10 +6,12 @@ import Register from './Pages/Register/Register';
 import Products from './Pages/Home/Products/Products';
 import Reviews from './Pages/Home/Reviews/Reviews';
 import Error from './Pages/Error/Error';
+import AuthProvider from './context/AuthProvider';
 
 function App() {
   return (
     <div className="App">
+      <AuthProvider>
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
@@ -35,6 +37,7 @@ function App() {
           </Route>
         </Switch>
       </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }
