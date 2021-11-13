@@ -7,6 +7,7 @@ import Banner from '../Banner/Banner';
 import Navigation from '../Navigation/Navigation';
 import Products from '../Products/Products';
 import Reviews from '../Reviews/Reviews';
+import Vision from '../Vision/Vision';
 
 
 //link style
@@ -29,7 +30,9 @@ const Home = () => {
                 <h1>Glims Of Our Cars</h1>
                 <Products />
             </Container>
+            
             <Reviews />
+            <Vision></Vision>
             <Footer/>
         </div>
     );
