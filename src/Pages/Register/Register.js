@@ -5,17 +5,21 @@ import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import Header from '../Shared/Header/Header';
 
+import {useHistory } from 'react-router-dom';
+
 const Register = () => {
 
-    const { signinUsingGoogle, auth } = useAuth();
+    const { registerNewUser, auth } = useAuth();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const history = useHistory();
 
 
     const handleNameChange = e => {
         setName(e.target.value);
+        console.log(name);
     }
     const handleEmailChange = e => {
         setEmail(e.target.value);
@@ -27,35 +31,16 @@ const Register = () => {
 
     const handleRegistration = e => {
         e.preventDefault();
-        console.log(email, password);
+        console.log(email, password, name, history);
         if (password.length < 6) {
             setError('Password Must be at least 6 characters long.')
             return;
         }
         else {
-            registerNewUser(email, password);
+            registerNewUser(email, password, name, history);
         }
     }
 
-    const registerNewUser = (email, password) => {
-        createUserWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                const user = result.user;
-
-                window.location.reload()
-                console.log(user);
-                setError('');
-                setUserName();
-            })
-            .catch(error => {
-                setError(error.message);
-            })
-    }
-
-    const setUserName = () => {
-        updateProfile(auth.currentUser, { displayName: name })
-            .then(result => { })
-    }
 
 
     return (
@@ -77,7 +62,7 @@ const Register = () => {
                                         
                                     </div>
                                     <div >
-                                            <input type="password" onBlur={handlePasswordChange} clarequired />
+                                            <input type="password" onBlur={handlePasswordChange} required />
                                         
                                     </div>
 

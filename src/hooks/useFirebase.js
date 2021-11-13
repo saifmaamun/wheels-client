@@ -57,25 +57,30 @@ const useFirebase = () => {
     }, [])
     
 // new user registration
-    const registerNewUser = (email, password) => {
+    const registerNewUser = (email, password, name, history) => {
+        setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                const user = result.user;
-                console.log(user);
+            .then((userCredential) => {
                 setError('');
-                setUserName();
+                const newUser = { email, displayName: name };
+                setUser(newUser);
+                // save user to the database
+                saveUser(email, name, 'POST');
+                // send name to firebase after creation
+                updateProfile(auth.currentUser, {
+                    displayName: name
+                }).then(() => {
+                }).catch((error) => {
+                });
+                history.replace('/');
             })
-            .catch(error => {
+            .catch((error) => {
                 setError(error.message);
+                console.log(error);
             })
+            .finally(() => setIsLoading(false));
     }
-
-    const setUserName = () => {
-        updateProfile(auth.currentUser, { displayName: name })
-            .then(result => { })
-    }
-
-// new user registration
+    
 
 
     const handleUserLogin = (email, password) => {
@@ -89,6 +94,20 @@ const useFirebase = () => {
                 setError(error.message)
             });
     };
+
+    const saveUser = (email, displayName, method) => {
+        const user = { email, displayName };
+        fetch('http://localhost:5000/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then()
+    }
+
+
 
 // 
 
