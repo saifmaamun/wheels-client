@@ -4,18 +4,30 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useHistory, useParams } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
+import axios from 'axios';
 import Header from '../../Shared/Header/Header';
+import { useForm } from 'react-hook-form';
 
 const Purchase = () => {
     const [purchase, setPurchase] = useState({})
     const { name, hints, img, price } = purchase;
-    console.log(purchase);
     const { id } = useParams();
+
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const onSubmit = data => {
+        console.log(data);
+        axios.post('https://arcane-badlands-01231.herokuapp.com/purcheased', data)
+            .then(res => {
+                if (res.data.insertedId) {
+                    alert('Added Successfully')
+                    // history.push('/mytrips')
+                }
+            })
+    }
 
     const history = useHistory()
     const { user } = useAuth();
     const { displayName, email } = user;
-    console.log(user);
 
 
     useEffect(() => {
@@ -49,7 +61,19 @@ const Purchase = () => {
                             </Card>
                         </Grid>
                         <Grid item xs={6} md={4}>
-                            
+                            <h1>Please Fill in</h1>
+                            <form onSubmit={handleSubmit(onSubmit)}>
+                                <input value={displayName} {...register('userName',{ required: true })} /> <br />
+                                <input value={email} {...register("email",{ required: true })} /> <br />
+                                <input value={name} {...register("productName", { required: true })} /> <br />
+                                <input value={hints} {...register("details", { required: true })} /> <br />
+                                <input value={price} {...register("price", { required: true })} /> <br />
+                                <input {...register("address", { required: true })} placeholder='Address' /> <br />
+                                <input  {...register("number", { required: true })} type='number' placeholder='Phone Number' /> <br />
+                                {errors.exampleRequired && <span>This field is required</span>} <br />
+
+                                <input type="submit" />
+                            </form>
                         </Grid>
                     </Grid>
                 </Box>

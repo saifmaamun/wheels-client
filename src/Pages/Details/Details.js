@@ -9,7 +9,6 @@ const Details = () => {
     const { id } = useParams();
     const [car, setCar] = useState({})
     const { name, description, img, price, _id } = car;
-    console.log(_id);
     useEffect(() => {
         fetch(`https://arcane-badlands-01231.herokuapp.com/details/${id}`)
             .then(res => res.json())

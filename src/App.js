@@ -9,9 +9,10 @@ import Error from './Pages/Error/Error';
 import AuthProvider from './context/AuthProvider';
 import Purchase from './Pages/Private/Purchase/Purchase';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
-import Dashboard from './Pages/Private/Dashboard/Dashboard';
 import Details from './Pages/Details/Details';
 import AllProducts from './Pages/AllProducts/AllProducts';
+import Dashboard from './Pages/Private/Dashboard/Dashboard/Dashboard';
+import MyOrder from './Pages/Private/Dashboard/MyOrders/MyOrder';
 
 function App() {
   return (
@@ -40,6 +41,9 @@ function App() {
             <PrivateRoute path="/dashboard">
             <Dashboard></Dashboard>
             </PrivateRoute>
+            <Route path="/myorder">
+            <MyOrder></MyOrder>
+            </Route>
             <PrivateRoute path="/purchase/:id">
             <Purchase></Purchase>
           </PrivateRoute>
