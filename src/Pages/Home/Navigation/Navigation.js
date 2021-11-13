@@ -8,10 +8,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const Navigation = () => {
 
-
+    const { user, logout } = useAuth();
 
     //link style
     const navStyle = {
@@ -46,7 +47,7 @@ const Navigation = () => {
                                 </NavLink>
                         <NavLink style={navStyle} to="/products">
                             <Typography variant="subtitle2" component="div">
-                                Products
+                                Speed Machines
                             </Typography>
                                 </NavLink>
                         <NavLink style={navStyle} to="/home">
@@ -57,22 +58,25 @@ const Navigation = () => {
                                 
                         <Typography variant="subtitle2" component="div" sx={{ flexGrow: 1 }}>
                                 </Typography>
-                        <NavLink style={navStyle} to="/dashboard">
+                        {user?.email && <NavLink style={navStyle} to="/dashboard">
                             <Typography variant="subtitle2" component="div" sx={{ flexGrow: 1 }}>
-                            dashboard
+                                dashboard
                             </Typography>
-                                </NavLink>
-                        <NavLink style={navStyle} to="/login">
+                        </NavLink>}
+                        {!user?.email && <NavLink style={navStyle} to="/login">
                             <Typography variant="subtitle2" component="div" sx={{ flexGrow: 1 }}>
-                            Login
+                                Login
                             </Typography>
-                                </NavLink>
-                        <NavLink style={navStyle} to="/register">
+                        </NavLink>}
+                    {!user?.email&&<NavLink style={navStyle} to="/register">
                             <Typography variant="subtitle2" component="div" sx={{ flexGrow: 1 }}>
                             Register
                             </Typography>
-                                </NavLink>
-                        <Button style={{ color: "black"}}>Logout</Button>
+                        </NavLink>}
+                        {user?.email && <Typography sx={{ color: 'text.warning', bgcolor: 'text.primary', px: 3, py: 1, borderRadius: 16 }} variant="subtitle2" component="div">
+                            {user.displayName}
+                        </Typography>}
+                        {user?.email &&<Button onClick={logout} style={{ color: "black"}}>Logout</Button>}
                     </Toolbar>
                 </AppBar>
             </Box>

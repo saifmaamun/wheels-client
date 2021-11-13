@@ -1,33 +1,34 @@
-
-import { Container } from '@mui/material';
-import Grid from '@mui/material/Grid';
+import { Container, Grid } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import Product from '../Product/Product';
+import Product from '../Home/Product/Product';
+import Header from '../Shared/Header/Header';
 
-const Products = () => {
+const AllProducts = () => {
     const [cars, setCars] = useState([]);
     useEffect(() => {
         fetch('http://localhost:5000/products')
             .then(res => res.json())
-            .then(data => setCars(data.slice(0, 6)))
+            .then(data => setCars(data))
     }, [])
 
     return (
+        <div>
+<Header/>
         <Container >
             <Grid sx={{ mt: 5 }} container spacing={2}>
                 {
                     cars.map(car =>
                         <Product
-                            key={car._id}
-                            car={car}
+                        key={car._id}
+                        car={car}
                         ></Product>)
-                }
+                    }
             </Grid>
-            
+
         </Container>
 
+                    </div>
     );
 };
 
-export default Products;
+export default AllProducts;

@@ -1,4 +1,4 @@
-import { Grid} from '@mui/material';
+import { Container, Grid} from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -25,6 +25,7 @@ const Home = () => {
         <div>
             <Navigation />
             <Banner />
+            <Container>
             <Box sx={{ mt:-10, mb:10}}>
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                     
@@ -42,6 +43,7 @@ const Home = () => {
                         </Grid>
                 </Grid>
             </Box>
+                </Container>
             <Products />
             <Reviews />
             <Footer/>
