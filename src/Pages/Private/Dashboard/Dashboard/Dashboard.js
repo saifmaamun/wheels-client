@@ -49,30 +49,21 @@ function Dashboard(props) {
         <div>
             <Toolbar />
             <Divider />
-            <Link to="/"><Button color="inherit">Home</Button></Link> <br />
+            <Link style={{ textDecoration: "none" }} to="/"><Button color="inherit">Home</Button></Link> <br />
             {!admin && <Box>
-            <Link to={url}><Button color="inherit">My Order</Button></Link> <br />
-                <Link to={`${url}/payment`}><Button color="inherit">Paymente</Button></Link> <br />
-                <Link to={`${url}/reviews`}><Button color="inherit">Reviews</Button></Link> <br />
+                <Link style={{ textDecoration: "none" }} to={url}><Button color="inherit">My Order</Button></Link> <br />
+                <Link style={{ textDecoration: "none" }} to={`${url}/payment`}><Button color="inherit">Paymente</Button></Link> <br />
+                <Link style={{ textDecoration: "none" }} to={`${url}/reviews`}><Button color="inherit">Reviews</Button></Link> <br />
             </Box>}
-                <Link to={`${url}/addreview`}><Button color="inherit">Add Review</Button></Link> <br />
+            <Link style={{ textDecoration: "none" }} to={`${url}/addreview`}><Button color="inherit">Add Review</Button></Link> <br />
             {admin && <Box>
-                <Link to={`${url}/manageallproducts`}><Button color="inherit">All Cars</Button></Link> <br />
-                <Link to={`${url}/allorders`}><Button color="inherit">All Order</Button></Link> <br />
-                <Link to={`${url}/addproduct`}><Button color="inherit">Add Car</Button></Link> <br />
-                <Link to={`${url}/makeadmin`}><Button color="inherit">Make Admin</Button></Link>
+                <Link style={{ textDecoration: "none" }} to={`${url}/manageallproducts`}><Button color="inherit">All Cars</Button></Link> <br />
+                <Link style={{ textDecoration: "none" }} to={`${url}/allorders`}><Button color="inherit">All Order</Button></Link> <br />
+                <Link style={{ textDecoration: "none" }} to={`${url}/addproduct`}><Button color="inherit">Add Car</Button></Link> <br />
+                <Link style={{ textDecoration: "none" }} to={`${url}/makeadmin`}><Button color="inherit">Make Admin</Button></Link>
             </Box>}
             <Button onClick={logout} style={{ color: "black" }}>Logout</Button>
-            <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
+            
         </div>
     );
 

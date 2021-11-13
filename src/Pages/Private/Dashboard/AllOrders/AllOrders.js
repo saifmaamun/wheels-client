@@ -47,7 +47,7 @@ const AllOrders = () => {
                             <TableCell align="right">Model</TableCell>
                             <TableCell align="right">Address</TableCell>
                             <TableCell align="right">Phone Number</TableCell>
-                            <TableCell align="right">Price (g)</TableCell>
+                            <TableCell align="right">Price</TableCell>
                         </TableRow>
                         {purcheasedItems.map((purcheasedItem) => (
                             <TableRow

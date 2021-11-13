@@ -1,7 +1,5 @@
-import { Container } from '@mui/material';
-import Grid from '@mui/material/Grid';
+import { Container, Paper, Table, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import Review from '../Review/Review';
 
 const Reviews = () => {
@@ -13,18 +11,29 @@ const Reviews = () => {
     }, [])
 
     return (
-        <Container >
-            <Grid sx={{ mt: 5 }} container spacing={2}>
-                {
-                    reviews.map(review =>
-                        <Review
-                            key={review._id}
-                            review={review}
-                        >
-                        </Review>)
-                }
-            </Grid>
-
+        <Container>
+            <h1>All Reviews</h1>
+            <TableContainer component={Paper}>
+                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Name</TableCell>
+                            <TableCell align="right">Email</TableCell>
+                            <TableCell align="right">Review</TableCell>
+                        </TableRow>
+                        {reviews.map((review) => (
+                            <TableRow
+                                key={review._id}
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                            >
+                                <TableCell align="right">{review.name}</TableCell>
+                                <TableCell align="right">{review.email}</TableCell>
+                                <TableCell align="right">{review.description}</TableCell>
+                            </TableRow>
+                        ))}
+                    </TableHead>
+                </Table>
+            </TableContainer>
         </Container>
 
     );

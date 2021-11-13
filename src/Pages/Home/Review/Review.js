@@ -1,27 +1,18 @@
-import React from 'react';
-import Grid from '@mui/material/Grid';
-import { Card, CardContent,Typography } from '@mui/material';
+// import React from 'react';
+// import Grid from '@mui/material/Grid';
+// import { Card, CardContent,TableCell,Typography } from '@mui/material';
+// import { Box } from '@mui/system';
 
-const Review = ({ review }) => {
-    const { name, description, email } = review;
-    console.log(review);
-    return (
-        <Grid item xs={4}>
-            <Card sx={{ maxWidth: 345 }}>
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        {name}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        {description}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        {email}
-                    </Typography>
-                </CardContent>
-            </Card>
-        </Grid>
-    );
-};
+// const Review = ({ review }) => {
+//     const { name, description, email } = review;
+//     console.log(review);
+//     return (
+//         <Box>
+//             <TableCell align="right">{review.name}</TableCell>
+//             <TableCell align="right">{review.email}</TableCell>
+//             <TableCell align="right">{review.description}</TableCell>
+//         </Box>
+//     );
+// };
 
-export default Review;
+// export default Review;
