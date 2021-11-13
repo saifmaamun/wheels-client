@@ -45,6 +45,7 @@ const Home = () => {
             </Box>
                 </Container>
             <Products />
+            <h3>User Review</h3>
             <Reviews />
             <Footer/>
         </div>

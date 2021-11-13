@@ -9,22 +9,15 @@ import Paper from '@mui/material/Paper';
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../../../hooks/useAuth';
 
-const MyOrder = () => {
-    const { user,isLoading } = useAuth();
+const AllOrders = () => {
+    const { user, isLoading } = useAuth();
     // console.log('user',user.email);
     const [purcheasedItems, setPurcheasedItems] = useState([])
     // console.log('purcheased items', purcheasedItems);
     useEffect(() => {
         fetch('https://arcane-badlands-01231.herokuapp.com/purcheased')
             .then(res => res.json())
-            .then(data => {
-                    // console.log('data',data);
-                    
-                    const added = data.filter(items => items.email === user.email)
-                    // console.log(added);
-                    setPurcheasedItems(added)
-                
-            })
+            .then(data => setPurcheasedItems(data))
     }, [purcheasedItems]);
 
     const handleDelete = id => {
@@ -45,7 +38,7 @@ const MyOrder = () => {
     }
     return (
         <Container>
-            <h1>{user.displayName}'s Purchase</h1>
+            <h1>All Purchase</h1>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
@@ -57,20 +50,20 @@ const MyOrder = () => {
                             <TableCell align="right">Price (g)</TableCell>
                         </TableRow>
                         {purcheasedItems.map((purcheasedItem) => (
-                <TableRow
+                            <TableRow
                                 key={purcheasedItem._id}
-                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                >
-                    <TableCell component="th" scope="row">
-                        {purcheasedItem.userName}
-                    </TableCell>
-                    <TableCell align="right">{purcheasedItem.productName}</TableCell>
-                    <TableCell align="right">{purcheasedItem.address}</TableCell>
-                    <TableCell align="right">{purcheasedItem.number}</TableCell>
-                    <TableCell align="right">{purcheasedItem.price}</TableCell>
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                            >
+                                <TableCell component="th" scope="row">
+                                    {purcheasedItem.userName}
+                                </TableCell>
+                                <TableCell align="right">{purcheasedItem.productName}</TableCell>
+                                <TableCell align="right">{purcheasedItem.address}</TableCell>
+                                <TableCell align="right">{purcheasedItem.number}</TableCell>
+                                <TableCell align="right">{purcheasedItem.price}</TableCell>
                                 <TableCell align="right"><Button className="btn btn-dark fw-bold" onClick={() => handleDelete(purcheasedItem._id)}>Remove</Button></TableCell>
-                </TableRow>
-            ))}
+                            </TableRow>
+                        ))}
                     </TableHead>
                 </Table>
             </TableContainer>
@@ -78,6 +71,4 @@ const MyOrder = () => {
     );
 };
 
-export default MyOrder;
-
-
+export default AllOrders;

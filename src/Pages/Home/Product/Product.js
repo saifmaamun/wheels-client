@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
-import { useParams } from 'react-router';
 import { Card, CardActions, CardContent, CardMedia, Typography, Button } from '@mui/material';
 
 const Product = ({ car }) => {
