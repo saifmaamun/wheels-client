@@ -13,6 +13,7 @@ import Details from './Pages/Details/Details';
 import AllProducts from './Pages/AllProducts/AllProducts';
 import Dashboard from './Pages/Private/Dashboard/Dashboard/Dashboard';
 import MyOrder from './Pages/Private/Dashboard/MyOrders/MyOrder';
+import Payment from './Pages/Private/Dashboard/Payment/Payment';
 
 function App() {
   return (
@@ -41,15 +42,9 @@ function App() {
             <PrivateRoute path="/dashboard">
             <Dashboard></Dashboard>
             </PrivateRoute>
-            <Route path="/myorder">
-            <MyOrder></MyOrder>
-            </Route>
             <PrivateRoute path="/purchase/:id">
             <Purchase></Purchase>
           </PrivateRoute>
-          <Route path="/reviews">
-            <Reviews></Reviews>
-          </Route>
           <Route path="*">
             <Error></Error>
           </Route>
