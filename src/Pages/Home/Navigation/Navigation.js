@@ -37,7 +37,7 @@ const Navigation = () => {
                         </IconButton>
                         <NavLink style={navStyle} to="/home">
                             <Typography  variant="h6" component="div">
-                                Broom
+                                Wheels
                             </Typography>
                         </NavLink>
                         <NavLink style={navStyle} to="/products">
