@@ -30,6 +30,9 @@ function App() {
           <Route path="/login">
             <Login></Login>
           </Route>
+          <Route path="/reviews">
+            <Reviews></Reviews>
+          </Route>
           <Route exact path="/register">
             <Register></Register>
           </Route>

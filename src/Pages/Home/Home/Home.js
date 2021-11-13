@@ -25,26 +25,10 @@ const Home = () => {
         <div>
             <Navigation />
             <Banner />
-            <Container>
-            <Box sx={{ mt:-10, mb:10}}>
-                <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                    
-                    <Grid item xs={2} sm={4} md={3}>
-                        <Link to='/product' style={navStyle}>Racing</Link>
-                        </Grid>
-                        <Grid item xs={2} sm={4} md={3}>
-                        <Link to='/product'  style={navStyle}>Geep</Link>
-                        </Grid>
-                        <Grid item xs={2} sm={4} md={3}>
-                        <Link to='/product'  style={navStyle}>Sports</Link>
-                        </Grid>
-                        <Grid item xs={2} sm={4} md={3}>
-                        <Link to='/product'  style={navStyle}>Luxerious</Link>
-                        </Grid>
-                </Grid>
-            </Box>
-                </Container>
-            <Products />
+            <Container >
+                <h1>Glims Of Our Cars</h1>
+                <Products />
+            </Container>
             <Reviews />
             <Footer/>
         </div>

@@ -42,22 +42,19 @@ const Login = () => {
                 <h1 className="fw-bolder mt-2">Please Login</h1>
 
                 
-                            <div >
-                                <input onBlur={hanldeEmail} className="w-100 py-3 rounded border-info" type="email" name="" placeholder="Email" />
+                <div className="login-form" >
+                                <input onBlur={hanldeEmail} className="w-100 py-3 rounded border-info" type="email"  placeholder="Email" />
                                 <br />
                                 <br />
-                                <input onBlur={hanldePassword}  type="password" name="" placeholder="Password" />
+                                <input onBlur={hanldePassword}  type="password"  placeholder="Password" />
                                 <br />
                                 <div >{error}</div>
                                 <br />
                                 <div >
-                                    <Button onClick={handleLogin} >Log In</Button>
+                        <Button variant="contained" onClick={handleLogin} >Log In</Button>
                                     <br />
-                                    {/* <p>=====Or Sign in With Google=====</p>
-                                    <Button onClick={signinUsingGoogle}>Sign In With Google</Button> */}
-                                    {/* <br /> */}
                                     <br />
-                                    <Link to='/register'><p>New User?</p></Link>
+                        <Link style={{ textDecoration: 'none', color:'white', fontWeight:'bold'}} to='/register'><p>New User?</p></Link>
                                 </div>
                             </div>
             </div>

@@ -39,22 +39,19 @@ const Navigation = () => {
                             <Typography  variant="h6" component="div">
                                 Broom
                             </Typography>
-                                </NavLink>
+                        </NavLink>
+                        <NavLink style={navStyle} to="/products">
+                            <Typography variant="subtitle2" component="div">
+                                Our Speed Machines
+                            </Typography>
+                        </NavLink>
                         <NavLink style={navStyle} to="/reviews">
                             <Typography variant="subtitle2" component="div">
                                 Reviews
                             </Typography>
                                 </NavLink>
-                        <NavLink style={navStyle} to="/products">
-                            <Typography variant="subtitle2" component="div">
-                                Speed Machines
-                            </Typography>
-                                </NavLink>
-                        <NavLink style={navStyle} to="/home">
-                            <Typography variant="subtitle2" component="div">
-                                Broom
-                            </Typography>
-                                </NavLink>
+                        
+                        
                                 
                         <Typography variant="subtitle2" component="div" sx={{ flexGrow: 1 }}>
                                 </Typography>

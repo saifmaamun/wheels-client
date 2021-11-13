@@ -49,18 +49,18 @@ function Dashboard(props) {
         <div>
             <Toolbar />
             <Divider />
-            <Link style={{ textDecoration: "none" }} to="/"><Button color="inherit">Home</Button></Link> <br />
+            <Link style={{ textDecoration: 'none', color: 'black', fontWeight: 'bold' }} to="/"><Button color="inherit">Home</Button></Link> <br />
             {!admin && <Box>
-                <Link style={{ textDecoration: "none" }} to={url}><Button color="inherit">My Order</Button></Link> <br />
-                <Link style={{ textDecoration: "none" }} to={`${url}/payment`}><Button color="inherit">Paymente</Button></Link> <br />
-                <Link style={{ textDecoration: "none" }} to={`${url}/reviews`}><Button color="inherit">Reviews</Button></Link> <br />
+                <Link style={{ textDecoration: 'none', color: 'black', fontWeight: 'bold' }} to={url}><Button color="inherit">My Order</Button></Link> <br />
+                <Link style={{ textDecoration: 'none', color: 'black', fontWeight: 'bold' }} to={`${url}/payment`}><Button color="inherit">Paymente</Button></Link> <br />
+                <Link style={{ textDecoration: 'none', color: 'black', fontWeight: 'bold' }} to={`${url}/reviews`}><Button color="inherit">Reviews</Button></Link> <br />
             </Box>}
-            <Link style={{ textDecoration: "none" }} to={`${url}/addreview`}><Button color="inherit">Add Review</Button></Link> <br />
+            <Link style={{ textDecoration: 'none', color: 'black', fontWeight: 'bold' }} to={`${url}/addreview`}><Button color="inherit">Add Review</Button></Link> <br />
             {admin && <Box>
-                <Link style={{ textDecoration: "none" }} to={`${url}/manageallproducts`}><Button color="inherit">All Cars</Button></Link> <br />
-                <Link style={{ textDecoration: "none" }} to={`${url}/allorders`}><Button color="inherit">All Order</Button></Link> <br />
-                <Link style={{ textDecoration: "none" }} to={`${url}/addproduct`}><Button color="inherit">Add Car</Button></Link> <br />
-                <Link style={{ textDecoration: "none" }} to={`${url}/makeadmin`}><Button color="inherit">Make Admin</Button></Link>
+                <Link style={{ textDecoration: 'none', color: 'black', fontWeight: 'bold' }} to={`${url}/manageallproducts`}><Button color="inherit">All Cars</Button></Link> <br />
+                <Link style={{ textDecoration: 'none', color: 'black', fontWeight: 'bold' }} to={`${url}/allorders`}><Button color="inherit">All Order</Button></Link> <br />
+                <Link style={{ textDecoration: 'none', color: 'black', fontWeight: 'bold' }} to={`${url}/addproduct`}><Button color="inherit">Add Car</Button></Link> <br />
+                <Link style={{ textDecoration: 'none', color: 'black', fontWeight: 'bold' }} to={`${url}/makeadmin`}><Button color="inherit">Make Admin</Button></Link>
             </Box>}
             <Button onClick={logout} style={{ color: "black" }}>Logout</Button>
             

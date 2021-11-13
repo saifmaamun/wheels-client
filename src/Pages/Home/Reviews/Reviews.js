@@ -11,13 +11,13 @@ const Reviews = () => {
     }, [])
 
     return (
-        <Container>
+        <Container sx={{mb:5,pb:5}}>
             <h1>All Reviews</h1>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell>Name</TableCell>
+                            <TableCell>Model </TableCell>
                             <TableCell align="right">Email</TableCell>
                             <TableCell align="right">Review</TableCell>
                         </TableRow>

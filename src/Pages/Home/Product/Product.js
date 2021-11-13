@@ -19,7 +19,7 @@ const Product = ({ car }) => {
                         {name}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        {hints}
+                        {hints.slice(0,80)}
                     </Typography>
                     <Typography variant="h6" component="div">
                         Price: Starts From ${price}

@@ -4,6 +4,7 @@ import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import Header from '../Shared/Header/Header';
+import './Register.css'
 
 import {useHistory } from 'react-router-dom';
 
@@ -49,7 +50,7 @@ const Register = () => {
             <div>
                 <h1 >Please Register</h1>
                 
-                            <div >
+                <div className="register-form" >
                                 <form onSubmit={handleRegistration}>
                                     
                                         <div>
@@ -67,18 +68,14 @@ const Register = () => {
                                     </div>
 
                                     <div >{error}</div>
-                                    <button type="submit" >
+                        <Button variant="contained" type="submit" >
                                         Register
-                                    </button>
+                                    </Button>
 
 
                                 </form>
-                                {/* <br />
-                                <p>=====Or Sign in With Google=====</p>
-                                <Button onSubmit={signinUsingGoogle}>Sign In With Google</Button>
-                                <br /> */}
                                 <br />
-                                <Link to='/login'><p>Already have an account</p></Link>
+                    <Link style={{ textDecoration: 'none', color: 'white', fontWeight: 'bold' }} to='/login'><p>Already have an account</p></Link>
                             </div>
                         
             </div>
